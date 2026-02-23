@@ -1,0 +1,18 @@
+public class PrototypeDemo {
+    public static void main(String[] args) {
+
+        Order original = new Order();
+        original.addProduct(new Product("Laptop", 1200, 1));
+        original.addDiscount(new Discount("New Year", 10));
+        original.setDeliveryCost(15);
+        original.setPaymentMethod("Card");
+
+        System.out.println("ORIGINAL:");
+        original.show();
+
+        System.out.println("\nCLONE:");
+
+        Order clone = original.clone();
+        clone.show();
+    }
+}
