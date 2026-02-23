@@ -1,0 +1,13 @@
+public class SingletonDemo {
+    public static void main(String[] args) {
+
+        Runnable task = () -> {
+            ConfigurationManager cm = ConfigurationManager.getInstance();
+            System.out.println("Instance hash: " + cm.hashCode());
+        };
+
+        new Thread(task).start();
+        new Thread(task).start();
+        new Thread(task).start();
+    }
+}
