@@ -1,0 +1,52 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Order implements Cloneable {
+
+    private List<Product> products = new ArrayList<>();
+    private List<Discount> discounts = new ArrayList<>();
+    private double deliveryCost;
+    private String paymentMethod;
+
+    public void addProduct(Product p) {
+        products.add(p);
+    }
+
+    public void addDiscount(Discount d) {
+        discounts.add(d);
+    }
+
+    public void setDeliveryCost(double cost) {
+        deliveryCost = cost;
+    }
+
+    public void setPaymentMethod(String method) {
+        paymentMethod = method;
+    }
+
+    //  deep clone
+    @Override
+    public Order clone() {
+        Order copy = new Order();
+
+        for (Product p : products) {
+            copy.products.add(p.clone());
+        }
+
+        for (Discount d : discounts) {
+            copy.discounts.add(d.clone());
+        }
+
+        copy.deliveryCost = deliveryCost;
+        copy.paymentMethod = paymentMethod;
+
+        return copy;
+    }
+
+    public void show() {
+        System.out.println("Products: " + products);
+        System.out.println("Discounts: " + discounts);
+        System.out.println("Delivery: " + deliveryCost);
+        System.out.println("Payment: " + paymentMethod);
+    }
+}
