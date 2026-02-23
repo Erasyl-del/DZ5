@@ -1,0 +1,8 @@
+public class ReportDirector {
+
+    public void constructReport(IReportBuilder builder) {
+        builder.setHeader("Отчет за 2026");
+        builder.setContent("Продажи выросли на 25%");
+        builder.setFooter("Конец отчета");
+    }
+}
