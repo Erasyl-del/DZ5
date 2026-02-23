@@ -1,0 +1,19 @@
+public class Discount implements Cloneable {
+    private String name;
+    private double percent;
+
+    public Discount(String name, double percent) {
+        this.name = name;
+        this.percent = percent;
+    }
+
+    @Override
+    public Discount clone() {
+        return new Discount(name, percent);
+    }
+
+    @Override
+    public String toString() {
+        return name + " -" + percent + "%";
+    }
+}
